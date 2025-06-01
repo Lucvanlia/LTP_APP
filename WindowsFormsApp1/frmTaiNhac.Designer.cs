@@ -42,6 +42,7 @@
             this.btnUrl = new Guna.UI2.WinForms.Guna2GradientButton();
             this.txtUrl = new Guna.UI2.WinForms.Guna2TextBox();
             this.label3 = new System.Windows.Forms.Label();
+            this.guna2GradientButton1 = new Guna.UI2.WinForms.Guna2GradientButton();
             this.pnTaiXuong.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -274,12 +275,32 @@
             this.label3.TabIndex = 3;
             this.label3.Text = "Nhập link ";
             // 
+            // guna2GradientButton1
+            // 
+            this.guna2GradientButton1.Animated = true;
+            this.guna2GradientButton1.BorderRadius = 8;
+            this.guna2GradientButton1.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.guna2GradientButton1.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.guna2GradientButton1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.guna2GradientButton1.DisabledState.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.guna2GradientButton1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.guna2GradientButton1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(133)))), ((int)(((byte)(255)))));
+            this.guna2GradientButton1.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(177)))), ((int)(((byte)(255)))));
+            this.guna2GradientButton1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.guna2GradientButton1.ForeColor = System.Drawing.Color.White;
+            this.guna2GradientButton1.Location = new System.Drawing.Point(438, 416);
+            this.guna2GradientButton1.Name = "guna2GradientButton1";
+            this.guna2GradientButton1.Size = new System.Drawing.Size(211, 36);
+            this.guna2GradientButton1.TabIndex = 8;
+            this.guna2GradientButton1.Text = "Chuyển đổi sang MP3 file";
+            // 
             // frmTaiNhac
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(714, 453);
+            this.Controls.Add(this.guna2GradientButton1);
             this.Controls.Add(this.pnTaiXuong);
             this.Controls.Add(this.btnLink);
             this.Controls.Add(this.lblTenVideo);
@@ -312,5 +333,6 @@
         private Guna.UI2.WinForms.Guna2TextBox txtTenFile;
         private System.Windows.Forms.Label label4;
         private Guna.UI2.WinForms.Guna2GradientButton btnTai;
+        private Guna.UI2.WinForms.Guna2GradientButton guna2GradientButton1;
     }
 }

@@ -131,13 +131,12 @@ namespace WindowsFormsApp1
                 }
             }
 
-            fileName = Regex.Replace(fileName, @"[^a-zA-Z0-9_-]", ""); // xử lý tên file hợp lệ
+            fileName = Regex.Replace(fileName, @"[^a-zA-Z0-9_-]", ""); // Tên file hợp lệ
             string outputFile = "";
 
-            // Kiểm tra yt-dlp và ffmpeg có tồn tại
-            if (!File.Exists(ytDlpPath) || !File.Exists(ffmpegPath))
+            if (!File.Exists(ytDlpPath))
             {
-                MessageBox.Show("Không tìm thấy yt-dlp hoặc ffmpeg!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Không tìm thấy yt-dlp!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
@@ -147,13 +146,13 @@ namespace WindowsFormsApp1
 
                 await Task.Run(() =>
                 {
-                    // Tải audio mp4
-                    string audioFile = GetUniqueFileName(savePath, fileName, ".mp4");
+                    // Tải audio (m4a là phổ biến nhất cho audio YouTube)
+                    string audioFile = GetUniqueFileName(savePath, fileName, ".m4a");
 
                     ProcessStartInfo psiDownload = new ProcessStartInfo
                     {
                         FileName = ytDlpPath,
-                        Arguments = $"-f bestaudio[ext=mp4]/bestaudio -o \"{audioFile}\" \"{youtubeUrl}\"",
+                        Arguments = $"-f bestaudio[ext=m4a]/bestaudio -o \"{audioFile}\" \"{youtubeUrl}\"",
                         RedirectStandardOutput = true,
                         RedirectStandardError = true,
                         UseShellExecute = false,
@@ -166,38 +165,9 @@ namespace WindowsFormsApp1
                         process.WaitForExit();
                     }
 
-                    // Convert mp4 sang mp3
-                    string mp3File = GetUniqueFileName(savePath, fileName, ".mp3");
-
-                    ProcessStartInfo psiConvert = new ProcessStartInfo
-                    {
-                        FileName = ffmpegPath,
-                        Arguments = $"-i \"{audioFile}\" -vn -b:a 192k -map_metadata 0 -id3v2_version 3 \"{mp3File}\"",
-                        RedirectStandardOutput = true,
-                        RedirectStandardError = true,
-                        UseShellExecute = false,
-                        CreateNoWindow = true
-                    };
-
-                    using (Process process = new Process { StartInfo = psiConvert })
-                    {
-                        process.Start();
-                        process.WaitForExit(60000);
-
-                        if (!process.HasExited)
-                        {
-                            process.Kill();
-                            MessageBox.Show("ffmpeg bị treo, đã tự động dừng!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        }
-                    }
-
-                    // Xóa file mp4 gốc sau khi chuyển đổi thành công
-                    if (File.Exists(mp3File)) File.Delete(audioFile);
-
-                    outputFile = mp3File;
+                    outputFile = audioFile;
                 });
 
-                // Cập nhật giao diện khi tải xong
                 if (File.Exists(outputFile))
                 {
                     progressBar1.Value = 100;
@@ -210,7 +180,7 @@ namespace WindowsFormsApp1
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Lỗi khi tải video: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Lỗi khi tải: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
