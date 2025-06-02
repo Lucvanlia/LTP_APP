@@ -131,7 +131,7 @@
             this.pnTaiXuong.Controls.Add(this.txtUrl);
             this.pnTaiXuong.Controls.Add(this.label3);
             this.pnTaiXuong.Enabled = false;
-            this.pnTaiXuong.Location = new System.Drawing.Point(13, 129);
+            this.pnTaiXuong.Location = new System.Drawing.Point(12, 169);
             this.pnTaiXuong.Name = "pnTaiXuong";
             this.pnTaiXuong.Size = new System.Drawing.Size(636, 272);
             this.pnTaiXuong.TabIndex = 7;
@@ -149,7 +149,7 @@
             this.btnTai.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(177)))), ((int)(((byte)(255)))));
             this.btnTai.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnTai.ForeColor = System.Drawing.Color.White;
-            this.btnTai.Location = new System.Drawing.Point(211, 221);
+            this.btnTai.Location = new System.Drawing.Point(210, 171);
             this.btnTai.Name = "btnTai";
             this.btnTai.Size = new System.Drawing.Size(180, 36);
             this.btnTai.TabIndex = 13;
@@ -168,7 +168,7 @@
             this.chknhac.CheckState = System.Windows.Forms.CheckState.Checked;
             this.chknhac.Enabled = false;
             this.chknhac.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold);
-            this.chknhac.Location = new System.Drawing.Point(120, 124);
+            this.chknhac.Location = new System.Drawing.Point(119, 107);
             this.chknhac.Name = "chknhac";
             this.chknhac.Size = new System.Drawing.Size(140, 29);
             this.chknhac.TabIndex = 12;
@@ -182,7 +182,7 @@
             // 
             // progressBar1
             // 
-            this.progressBar1.Location = new System.Drawing.Point(30, 192);
+            this.progressBar1.Location = new System.Drawing.Point(29, 142);
             this.progressBar1.Name = "progressBar1";
             this.progressBar1.Size = new System.Drawing.Size(575, 23);
             this.progressBar1.TabIndex = 11;
@@ -288,11 +288,12 @@
             this.guna2GradientButton1.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(177)))), ((int)(((byte)(255)))));
             this.guna2GradientButton1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2GradientButton1.ForeColor = System.Drawing.Color.White;
-            this.guna2GradientButton1.Location = new System.Drawing.Point(438, 416);
+            this.guna2GradientButton1.Location = new System.Drawing.Point(12, 131);
             this.guna2GradientButton1.Name = "guna2GradientButton1";
-            this.guna2GradientButton1.Size = new System.Drawing.Size(211, 36);
-            this.guna2GradientButton1.TabIndex = 8;
+            this.guna2GradientButton1.Size = new System.Drawing.Size(202, 32);
+            this.guna2GradientButton1.TabIndex = 9;
             this.guna2GradientButton1.Text = "Chuyển đổi sang MP3 file";
+            this.guna2GradientButton1.Click += new System.EventHandler(this.guna2GradientButton1_Click);
             // 
             // frmTaiNhac
             // 

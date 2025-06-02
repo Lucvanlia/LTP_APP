@@ -200,5 +200,10 @@ namespace WindowsFormsApp1
             string tenFileHopLe = Regex.Replace(tenFile, @"[^a-zA-Z0-9_-]", "");
             if (tenFile != tenFileHopLe) txtTenFile.Text = tenFileHopLe;
         }
+
+        private void guna2GradientButton1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
